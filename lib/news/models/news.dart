@@ -20,13 +20,13 @@ class News extends Equatable {
     return News(
       totalResults: news.totalResults ?? 0,
       status: news.status,
-      articles: news.articles.cast<Article>(),
+      articles: news.articles.cast<dynamic>(),
     );
   }
 
   final String status;
   final dynamic totalResults;
-  final List<Article> articles;
+  final List<dynamic> articles;
 
   @override
   List<Object?> get props => [totalResults, status, articles];
@@ -36,7 +36,7 @@ class News extends Equatable {
   News copyWith({
     String? status,
     dynamic totalResults,
-    List<Article>? articles
+    List<dynamic>? articles
   }) {
     return News(
       totalResults: totalResults ?? this.totalResults,

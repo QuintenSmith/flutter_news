@@ -11,8 +11,6 @@ Article _$ArticleFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Article(
-          source: $checkedConvert(
-              'source', (v) => Source.fromJson(v as Map<String, dynamic>)),
           author: $checkedConvert('author', (v) => v as String?),
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
@@ -31,7 +29,6 @@ Article _$ArticleFromJson(Map<String, dynamic> json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$ArticleToJson(Article instance) => <String, dynamic>{
-      'source': instance.source.toJson(),
       'author': instance.author,
       'title': instance.title,
       'description': instance.description,

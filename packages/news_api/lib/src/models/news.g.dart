@@ -15,11 +15,7 @@ News _$NewsFromJson(Map<String, dynamic> json) => $checkedCreate(
         final val = News(
           status: $checkedConvert('status', (v) => v as String),
           totalResults: $checkedConvert('total_results', (v) => v as int?),
-          articles: $checkedConvert(
-              'articles',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Article.fromJson(e as Map<String, dynamic>))
-                  .toList()),
+          articles: $checkedConvert('articles', (v) => v as List<dynamic>),
         );
         return val;
       },

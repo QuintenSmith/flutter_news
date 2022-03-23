@@ -14,7 +14,11 @@ class NewsState extends Equatable {
   NewsState({
     this.status = NewsStatus.initial,
     News? news,
-  }) : news = news ?? News(status: '', totalResults: 0, articles: []);
+  }) : news = news ?? News(
+      status: '',
+      totalResults: 0,
+      articles: <dynamic>[],
+  );
 
   factory NewsState.fromJson(Map<String, dynamic> json) => _$NewsStateFromJson(json);
 
@@ -35,6 +39,4 @@ class NewsState extends Equatable {
 
   @override
   List<Object?> get props => [status, news];
-
-
 }

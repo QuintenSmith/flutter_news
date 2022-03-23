@@ -15,5 +15,5 @@ class News {
 
   String status;
   int? totalResults;
-  List<Article> articles;
+  List<dynamic> articles;
 }

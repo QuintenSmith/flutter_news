@@ -1,5 +1,5 @@
-import 'package:news_api/src/models/article.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:news_repository/src/models/models.dart';
 
 part 'news.g.dart';
 
@@ -15,5 +15,5 @@ class News {
 
   String status;
   int? totalResults;
-  List<Article> articles;
+  List<dynamic> articles;
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_news/news/cubit/news_cubit.dart';
-import 'package:flutter_news/news/models/models.dart' as model;
 import 'package:news_repository/news_repository.dart';
 
 class NewsPage extends StatelessWidget {
@@ -10,8 +9,9 @@ class NewsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NewsCubit(context.read<NewsRepository>(),)
-        ..fetchNews('Techcrunch'),
+      create: (context) => NewsCubit(
+        context.read<NewsRepository>(),
+      )..fetchNews('Techcrunch'),
       child: NewsView(),
     );
   }
@@ -44,11 +44,16 @@ class ArticleListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return articles.isEmpty
         ? const Center(child: Text('no content'))
-        : ListView.builder(
-      itemBuilder: (BuildContext context, int index) {
-        return const Text('Hello');
-      },
-      itemCount: articles.length,
-    );
+        : Scaffold(
+            appBar: AppBar(
+              title: const Text('Results'),
+            ),
+            body: ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                return Text(articles[index]['title'].toString());
+              },
+              itemCount: articles.length,
+            ),
+          );
   }
 }
